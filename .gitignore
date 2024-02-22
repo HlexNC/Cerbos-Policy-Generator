@@ -4,4 +4,6 @@
 *.xlsx
 *.txt
 *.json
-install.log
+
+# Ignore log files
+*.log

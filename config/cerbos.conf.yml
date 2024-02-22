@@ -1,0 +1,16 @@
+engine:
+  defaultPolicyVersion: "default"
+
+server:
+  httpListenAddr: ":3592"
+  grpcListenAddr: ":3593"
+  adminAPI:
+    enabled: true
+    adminCredentials:
+      username: cerbos
+      passwordHash: JDJ5JDEwJE5HYnk4cTY3VTE1bFV1NlR2bmp3ME9QOXdXQXFROGtBb2lWREdEY2xXbzR6WnoxYWtSNWNDCgo=
+
+storage:
+  driver: "mysql"
+  mysql:
+    dsn: "${MYSQL_USER}:${MYSQL_PASSWORD}@tcp(${MYSQL_HOST}:3306)/cerbos"

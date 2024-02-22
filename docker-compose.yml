@@ -1,0 +1,21 @@
+# syntax=docker/dockerfile:1
+#
+version: "3.9"
+services:
+  cerbos:
+    image: ghcr.io/cerbos/cerbos:latest
+    command: ["server", "--config=/config/cerbos.conf.yml"]
+    ports:
+      - "3592:3592"
+      - "3593:3593"
+    volumes:
+      - ./config:/config
+#      - /workspaces/accelerate-policy-generator/policies:/policies
+    environment:
+        - MYSQL_USER=accelerate
+        - MYSQL_PASSWORD=accelerate
+        - MYSQL_HOST=host.docker.internal
+        - MYSQL_PORT=3306
+        - MYSQL_DB=cerbos
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

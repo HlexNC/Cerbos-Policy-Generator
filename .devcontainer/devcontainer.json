@@ -5,7 +5,19 @@
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "pip install -r requirements.txt && curl -o api_endpoints.csv https://github.com/UniversityOfNicosia/accelerate-policy-generator/files/13959956/api_endpoints.csv",
+  "postCreateCommand": "bash -i ./install-venv.sh && bash -i ./install-soft.sh",
+  "portsAttributes": {
+    "3592": {
+      "label": "Application",
+      "onAutoForward": "openBrowser"
+    }
+  },
   "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "app.py"
+      ]
+    },
     "vscode": {
       "extensions": [
         "ms-python.python",
@@ -14,5 +26,6 @@
         "ms-azuretools.vscode-docker"
       ]
     }
-  }
+  },
+  "forwardPorts": [3592]
 }
